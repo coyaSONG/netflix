@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+현재 프로젝트에 사용된 주요 기술스택
+nextjs, next auth, reactjs, tailwind, prisma, mongodb
 
-## Getting Started
+# troubleshooting
 
-First, run the development server:
+error: favorite api를 구현하는 과정에서 post요청 시 400에러 발생
+reason: get과 다르게 데이터를 변경시키는 post,delete 같은 요청은 csrf공격을 보호하기위해 엄격한 보안기능과 세션관리기능때문
+solve:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. [...nextauth] file에서 옵션을 따로 분리
+2. serverAuth file에서 getSession을 getServerSession으로 변경 후 serverAuth 파라미터에 req,res 같이 전달로 해결함.
+   stackoverflow링크[https://stackoverflow.com/questions/77408979/nextauth-js-getsession-in-api-works-with-get-fails-with-post]
