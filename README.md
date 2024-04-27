@@ -1,4 +1,4 @@
-# [🐶Demo 보기](https://netflix-six-woad.vercel.app/)
+# [Demo 보기 🖥️ ](https://netflix-six-woad.vercel.app/)
 
 # 프로젝트 기술 스택
 
